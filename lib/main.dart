@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
-import 'package:stacked_architecture/loginView.dart';
+import 'package:stacked_architecture/splashscreen.dart';
+import 'package:stacked_architecture/startupViewModel.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LoginPage(),
+    return ViewModelBuilder<StartupViewModel>.reactive(
+      viewModelBuilder: () => StartupViewModel(context),
+      onModelReady: (model) => model.handleStartupLogic(),
+      builder: (context, model, child) => MaterialApp(
+        home: SplashScreen(),
+      ),
     );
   }
 }

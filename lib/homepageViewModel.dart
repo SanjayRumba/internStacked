@@ -1,9 +1,11 @@
 import 'package:stacked/stacked.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:stacked_architecture/authenticationservice.dart';
 
 class DashboardViewModel extends BaseViewModel {
-  String _accessToken = '';
+  final AuthenticationService _authenticationService = AuthenticationService();
 
+  String _accessToken = '';
   String get accessToken => _accessToken;
 
   Future<void> getAccessToken() async {
@@ -17,16 +19,11 @@ class DashboardViewModel extends BaseViewModel {
     }
   }
 
-Future<void> logout() async {
-  try {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.remove('accessToken');
-    _accessToken = ''; // Clear the accessToken value
+  Future<void> logout() async {
+    await _authenticationService.logout();
+    // Clear the accessToken value
+    _accessToken = '';
     notifyListeners();
     print('Logged out. Access Token cleared.');
-  } catch (e) {
-    // Handle SharedPreferences remove failure
-    print('Error removing accessToken from SharedPreferences: $e');
   }
-}
 }

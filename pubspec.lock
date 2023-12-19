@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.1"
+  crypto:
+    dependency: transitive
+    description:
+      name: crypto
+      sha256: ff625774173754681d66daaf4a448684fb04b78f902da9cb3d308c19cc5e8bab
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.3"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -104,8 +112,16 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  get_it:
+  get:
     dependency: transitive
+    description:
+      name: get
+      sha256: "2ba20a47c8f1f233bed775ba2dd0d3ac97b4cf32fc17731b3dfc672b06b0e92a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.6.5"
+  get_it:
+    dependency: "direct main"
     description:
       name: get_it
       sha256: f79870884de16d689cf9a7d15eedf31ed61d750e813c538a6efb92660fea83c3
@@ -317,6 +333,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.1+1"
+  stacked_services:
+    dependency: "direct main"
+    description:
+      name: stacked_services
+      sha256: "52a518c63802bcbd6a562034eda4514093cfe22f519418489fe646e42513a11f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.3.0"
   stacked_shared:
     dependency: transitive
     description:
